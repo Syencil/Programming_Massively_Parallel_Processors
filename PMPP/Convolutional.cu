@@ -10,6 +10,8 @@
 #include <opencv2/imgcodecs.hpp>
 #include <iostream>
 
+// 此项目实现多通道卷积，主要涉及const memory，shared memory，cache，corner tuning策略，coalescing读取
+// 但是由于水平有限，CHW的一维模式coalescing读取到共享内存暂时不知道怎么处理
 
 // 需要的一些函数
 static void HandleError(cudaError_t err, const char *file, int line ) {
