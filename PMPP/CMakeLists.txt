@@ -16,3 +16,7 @@ target_link_libraries(Prefixsum cudart.so)
 cuda_add_executable(Histogram Histogram.cu)
 set_property(TARGET Histogram PROPERTY FOLDER PMPP)
 target_link_libraries(Histogram cudart.so)
+
+cuda_add_executable(SparseMatrix SparseMatrix.cu)
+set_property(TARGET SparseMatrix PROPERTY FOLDER PMPP)
+target_link_libraries(SparseMatrix cudart.so)
