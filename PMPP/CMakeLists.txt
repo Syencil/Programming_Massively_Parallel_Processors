@@ -20,3 +20,7 @@ target_link_libraries(Histogram cudart.so)
 cuda_add_executable(SparseMatrix SparseMatrix.cu)
 set_property(TARGET SparseMatrix PROPERTY FOLDER PMPP)
 target_link_libraries(SparseMatrix cudart.so)
+
+cuda_add_executable(MergeSort MergeSort.cu)
+set_property(TARGET MergeSort PROPERTY FOLDER PMPP)
+target_link_libraries(MergeSort cudart.so)
