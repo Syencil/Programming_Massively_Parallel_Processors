@@ -24,3 +24,7 @@ target_link_libraries(SparseMatrix cudart.so)
 cuda_add_executable(MergeSort MergeSort.cu)
 set_property(TARGET MergeSort PROPERTY FOLDER PMPP)
 target_link_libraries(MergeSort cudart.so)
+
+cuda_add_executable(GraphSearch GraphSearch.cu)
+set_property(TARGET GraphSearch PROPERTY FOLDER PMPP)
+target_link_libraries(GraphSearch cudart.so)
