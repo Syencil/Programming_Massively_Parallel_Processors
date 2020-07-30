@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(tensorRT)
+project(ParallOptimization)
 
 set_property(GLOBAL PROPERTY USE_FOLDERS on)
 
@@ -8,20 +8,6 @@ set(EXECUTABLE_OUTPUT_PATH "${PROJECT_BINARY_DIR}/bin")
 message(STATUS "Project_binary_dir : ${PROJECT_BINARY_DIR}")
 # c++ 11
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
-
-# cuda common
-
-include_directories(/work/tensorRT/common_source)
-
-# tensorRT
-set(tensorrt_dir /work/TensorRT-6.0.1.5)
-set(common_dir /work/TensorRT-6.0.1.5/samples/common/)
-include_directories(${tensorrt_dir}/include)
-include_directories(${common_dir})
-link_directories(${tensorrt_dir}/lib)
-
-message(STATUS "TensorRT Header => ${tensorrt_dir}/include")
-message(STATUS "TensorRT Lib => ${tensorrt_dir}/lib")
 
 # find opencv
 find_package(OpenCV REQUIRED)
@@ -42,8 +28,7 @@ endif(NOT OpenCV_FOUND)
 find_package(CUDA)
 find_package(CUDA REQUIRED)
 
-#include_directories(${CUDA_INCLUDE_DIRS})
-include_directories(/usr/local/cuda/targets/x86_64-linux/include)
+include_directories(/usr/local/cuda/include)
 if(NOT CUDA_LIBRARY_DIRS)
     set(CUDA_LIBRARY_DIRS /usr/local/cuda/lib64)
     message(WARING " Can not find CUDA lib. It will use the default path => ${CUDA_LIBRARY_DIRS}")
