@@ -108,7 +108,7 @@ int main(int args, char **argv){
     HANDLE_ERROR(cudaMemcpyToSymbol(mask_device, mask_host, image_channel * mask_width * mask_width * sizeof(float)));
 
     // 读取图像数据，载入Device中
-    std::string image_path = "/work/tensorRT/PMPP/data/164.jpg";
+    std::string image_path = "./PMPP/data/1.jpg";
     cv::Mat image_host = ImageRead(image_path, image_height, image_width);
 
 
@@ -139,7 +139,7 @@ int main(int args, char **argv){
     // 验证计算结果
     cv::Mat render_image = cv::Mat::ones(image_height, image_width, CV_32FC1);
     HANDLE_ERROR(cudaMemcpy(render_image.data, image_output_device, sizeof(float)*image_host.rows * image_host.cols, cudaMemcpyDeviceToHost));
-    cv::imwrite("/work/tensorRT/PMPP/data/render.jpg", render_image);
+    cv::imwrite("./PMPP/data/render.jpg", render_image);
 
     // destory
     HANDLE_ERROR(cudaEventDestroy(start));
